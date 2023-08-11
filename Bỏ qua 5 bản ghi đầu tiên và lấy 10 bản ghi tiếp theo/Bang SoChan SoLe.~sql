@@ -1,0 +1,40 @@
+﻿-- tạo bảng SoChan_SoLe
+create table SoChan_SoLe(
+       stt int generated always as identity primary key,
+       du_lieu int,
+       thong_bao varchar2(20 char)
+);
+
+
+-- xóa bảng
+drop table SoChan_SoLe;
+
+
+-- sử dụng câu lệnh PL/SQL
+declare
+     x int := 100;
+begin
+     for i in 1..10 loop
+         if mod(i, 2) = 0 then
+            insert into SoChan_SoLe(du_lieu, thong_bao) values (i, N'i là số chẵn');
+         end if;
+
+         if mod(i, 2) != 0 then
+            insert into SoChan_SoLe(du_lieu, thong_bao) values (i, N'i là số lẻ');
+         end if;
+         
+      end loop;
+
+      commit;
+end;
+
+
+-- để bỏ qua 5 bản ghi đầu tiên (sử dụng offset)
+-- sau đó lấy 10 bản ghi (sử dụng where rownum <= 10)
+select *
+from(
+       select *
+       from SoChan_SoLe
+       order by stt offset 5 rows
+)
+where rownum <= 10;
