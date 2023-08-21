@@ -1,0 +1,55 @@
+﻿-- tạo bảng tin tức
+-- có chức năng tự động tăng Pkey_ID
+create table Bang_TinTuc(
+       Pkey_ID number,
+       tieu_de varchar2(100 char),
+       noi_dung varchar2(1000 char)
+);
+
+
+
+-- để nó tự động tăng mỗi khi insert into
+-- thì phải tạo sequence
+create sequence TuDongTang_SEQUENCE
+start with 1
+increment by 1;
+
+
+
+-- xóa sequence
+drop sequence TuDongTang_SEQUENCE;
+
+
+
+-- tiếp theo chúng ta phải tạo trigger
+-- để kích hoạt sequence tự động tăng Pkey_ID
+create or replace trigger KichHoat_TuDongTang_TRIGGER
+       before insert on Bang_TinTuc
+       for each row
+           begin
+                :new.Pkey_ID := TuDongTang_SEQUENCE.nextval;
+           end;
+
+
+
+-- xóa trigger
+drop trigger KichHoat_TuDongTang_TRIGGER;
+
+
+
+-- nhập dữ liệu bằng insert into
+insert into Bang_TinTuc(Tieu_De, Noi_Dung)
+values (N'Tiêu đề 01', N'Nội dung demo 01');
+
+insert into Bang_TinTuc(Tieu_De, Noi_Dung)
+values (N'Tiêu đề 02', N'Nội dung demo 02');
+
+insert into Bang_TinTuc(Tieu_De, Noi_Dung)
+values (N'Tiêu đề 03', N'Nội dung demo 03');
+
+
+
+-- lấy dữ liệu ra xem
+-- thì sử dụng câu lệnh select
+select *
+from Bang_TinTuc;
