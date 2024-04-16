@@ -8,7 +8,7 @@ begin
     DBMS_OUTPUT.PUT_LINE('Value of y: ' || y);
 end;
 </pre>
-<br><br>
+<br>
 
 <pre>
 declare
