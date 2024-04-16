@@ -23,4 +23,4 @@ begin
 end;
 </pre>
 
-# Sử dụng thẻ <pre> trước khi dán code
+# Sử dụng thẻ "pre" trước khi dán code
