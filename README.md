@@ -22,3 +22,5 @@ begin
     DBMS_OUTPUT.PUT_LINE('Employee code: ' || v_code);
 end;
 </pre>
+
+# Sử dụng thẻ <pre> trước khi dán code
