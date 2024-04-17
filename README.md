@@ -24,3 +24,9 @@ end;
 </pre>
 
 # Sử dụng thẻ "pre" trước khi dán code
+
+# Nếu bạn thích in ra màn hình số 1
+<pre>
+    SELECT 1
+    FROM dual;
+</pre>
