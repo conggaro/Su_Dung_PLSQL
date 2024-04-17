@@ -67,3 +67,9 @@ Kết quả của câu lệnh SELECT 1 FROM dual sẽ trả về một cột duy
     select date '2024-01-31' - date '2024-01-01' as DISTANCE
     from dual;
 </pre>
+
+# Hàm chuyển chữ thường thành chữ hoa
+<pre>
+    select upper('hello')
+    from dual;
+</pre>
