@@ -38,3 +38,9 @@ Việc sử dụng dual trong câu lệnh SELECT 1 là một cách tiêu biểu 
 <br>
 
 Kết quả của câu lệnh SELECT 1 FROM dual sẽ trả về một cột duy nhất với một hàng duy nhất, giá trị của cột này là 1.
+
+# Hàm chuyển string sang date trong Oracle
+<pre>
+    select to_date('2004-01-31', 'yyyy-MM-dd')
+    from dual;
+</pre>
