@@ -73,3 +73,9 @@ Kết quả của câu lệnh SELECT 1 FROM dual sẽ trả về một cột duy
     select upper('hello')
     from dual;
 </pre>
+
+# Hàm chuyển chữ hoa thành chữ thường
+<pre>
+    select lower('HELLO')
+    from dual;
+</pre>
