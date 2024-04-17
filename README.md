@@ -44,3 +44,17 @@ Kết quả của câu lệnh SELECT 1 FROM dual sẽ trả về một cột duy
     select to_date('2004-01-31', 'yyyy-MM-dd')
     from dual;
 </pre>
+
+# Hàm chuyển date sang string trong Oracle
+<pre>
+    declare
+        v_date date := to_date('2004-01-31', 'yyyy-MM-dd');
+        v_string varchar2(20);
+    begin
+        -- sử dụng hàm to_char()
+        v_string := to_char(v_date, 'dd-MM-yyyy');
+        
+        -- in kết quả ra màn hình output
+        DBMS_OUTPUT.PUT_LINE('Date as string: ' || v_string);
+    end;
+</pre>
