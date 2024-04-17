@@ -58,3 +58,12 @@ Kết quả của câu lệnh SELECT 1 FROM dual sẽ trả về một cột duy
         DBMS_OUTPUT.PUT_LINE('Date as string: ' || v_string);
     end;
 </pre>
+
+# Tính khoảng cách giữa 2 ngày
+<pre>
+    -- tính khoảng cách giữa
+    -- ngày 31/01/2024
+    -- và ngày 01/01/2024
+    select date '2024-01-31' - date '2024-01-01' as DISTANCE
+    from dual;
+</pre>
