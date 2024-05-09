@@ -79,3 +79,27 @@ Kết quả của câu lệnh SELECT 1 FROM dual sẽ trả về một cột duy
     select lower('HELLO')
     from dual;
 </pre>
+
+# Tận dụng biến
+<pre>declare
+    v_id number;
+    
+    -- định nghĩa biến kiểu varchar2 (chuỗi)
+    v_other_table_value varchar2(50);
+begin
+    select EMPLOYEE_ID into v_id
+    from SE_USER
+    where USERNAME = upper('nva');
+    
+    -- sử dụng biến v_id trong truy vấn khác
+    select FULLNAME_VN into v_other_table_value
+    from HU_EMPLOYEE
+    where ID = v_id; -- sử dụng v_id làm tham số cho câu where
+
+    -- làm việc với giá trị từ bảng khác
+    DBMS_OUTPUT.PUT_LINE(N'In ra màn hình: ' || v_other_table_value);
+    
+    
+    -- để thực thi câu lệnh
+    -- thì bấm F8 trong phần mềm PL SQL
+end;</pre>
