@@ -103,3 +103,15 @@ begin
     -- để thực thi câu lệnh
     -- thì bấm F8 trong phần mềm PL SQL
 end;</pre>
+
+# Lấy bản ghi đầu tiên (giống select top 1)
+<pre>-- cách 1:
+select *
+from HU_EMPLOYEE
+where rownum = 1;
+
+
+-- cách 2:
+select *
+from HU_EMPLOYEE
+fetch next 1 rows only;</pre>
