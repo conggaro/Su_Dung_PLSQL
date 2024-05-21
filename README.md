@@ -115,3 +115,12 @@ where rownum = 1;
 select *
 from HU_EMPLOYEE
 fetch next 1 rows only;</pre>
+
+# Sử dụng CASE WHEN
+<pre>-- nếu EXPIRE_DATE khác null
+-- thì điền giá trị
+-- nếu nó là null thì điền chuỗi rỗng
+case
+    when b1.EXPIRE_DATE is not null then to_char(b1.EXPIRE_DATE, 'dd/MM/yyyy')
+    else ''
+end as EXPIRE_YEAR</pre>
