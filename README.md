@@ -124,3 +124,16 @@ case
     when b1.EXPIRE_DATE is not null then to_char(b1.EXPIRE_DATE, 'dd/MM/yyyy')
     else ''
 end as EXPIRE_YEAR</pre>
+
+# Chuyển string sang danh sách
+<pre>WITH split_values AS (
+    SELECT REGEXP_SUBSTR('1, 662, 650', '[^,]+', 1, LEVEL) AS CUSTOMIZE_ID
+    FROM dual
+    CONNECT BY REGEXP_SUBSTR('1, 662, 650', '[^,]+', 1, LEVEL) IS NOT NULL
+)
+SELECT *
+FROM HU_ORGANIZATION
+WHERE ID IN (
+    SELECT CUSTOMIZE_ID
+    FROM split_values
+);</pre>
