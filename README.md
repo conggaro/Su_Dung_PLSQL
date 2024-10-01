@@ -137,3 +137,15 @@ WHERE ID IN (
     SELECT CUSTOMIZE_ID
     FROM split_values
 );</pre>
+
+# Truy vấn đệ quy trong Oracle với "START WITH"
+<pre>SELECT column1, column2, ...
+FROM table_name
+START WITH condition
+CONNECT BY PRIOR parent_column = child_column;</pre>
+
+<br>
+Tóm tắt<br>
+START WITH là một phần quan trọng trong các truy vấn đệ quy trong Oracle.<br>
+Nó cho phép bạn bắt đầu từ một điểm gốc trong cấu trúc cây và truy xuất tất cả các hàng con liên quan.<br>
+Kết hợp với CONNECT BY, nó giúp xây dựng mối quan hệ giữa các hàng trong bảng.<br>
