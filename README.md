@@ -149,3 +149,9 @@ Tóm tắt<br>
 START WITH là một phần quan trọng trong các truy vấn đệ quy trong Oracle.<br>
 Nó cho phép bạn bắt đầu từ một điểm gốc trong cấu trúc cây và truy xuất tất cả các hàng con liên quan.<br>
 Kết hợp với CONNECT BY, nó giúp xây dựng mối quan hệ giữa các hàng trong bảng.<br>
+
+# Lấy năm, lấy tháng
+<pre>select extract(month from TER_EFFECT_DATE) as MONTH,
+       extract(year from TER_EFFECT_DATE) as YEAR
+from   HU_EMPLOYEE
+where  TER_EFFECT_DATE is not null</pre>
