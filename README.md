@@ -155,3 +155,8 @@ Kết hợp với CONNECT BY, nó giúp xây dựng mối quan hệ giữa các 
        extract(year from TER_EFFECT_DATE) as YEAR
 from   HU_EMPLOYEE
 where  TER_EFFECT_DATE is not null</pre>
+
+# Chuyển giá trị của các bản ghi thành một chuỗi danh sách, kèm theo ký tự phân tách "LISTAGG"
+<pre>select listagg(b1.FULLNAME, ', ') within group (order by b1.ID asc) as LIST_NAME
+from HU_EMPLOYEE b1
+where rownum <= 10;</pre>
