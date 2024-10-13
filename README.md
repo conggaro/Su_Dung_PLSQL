@@ -173,3 +173,26 @@ from dual;</pre>
 
 <pre>select to_number('123,456,789.67', '999G999G999D99') as number_value
 from dual;</pre>
+
+# Thủ tục trong Oracle
+<pre>PROCEDURE GET_EMPLOYEE_BY_ID(P_ID IN NUMBER,
+                              P_CODE IN VARCHAR2,
+                              P_CUR OUT CURSOR_TYPE) IS
+    P_SQL VARCHAR2(10000);
+  BEGIN
+    P_SQL := 'select *
+              from HU_EMPLOYEE
+              where ID = ' || to_char(P_ID) || ' and CODE = ''' || P_CODE || '''';
+              
+    -- in ra bien P_ID
+    dbms_output.put_line('P_ID: ' || P_ID);
+    
+    -- in ra bien P_CODE
+    dbms_output.put_line('P_CODE: ' || P_CODE);
+    
+    -- in bien P_SQL ra man hinh
+    dbms_output.put_line('P_SQL: ' || P_SQL);
+    
+    -- mo con tro P_CUR
+    OPEN P_CUR FOR P_SQL;
+  END;</pre>
