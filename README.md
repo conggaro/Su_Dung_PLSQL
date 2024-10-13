@@ -160,3 +160,7 @@ where  TER_EFFECT_DATE is not null</pre>
 <pre>select listagg(b1.FULLNAME, ', ') within group (order by b1.ID asc) as LIST_NAME
 from HU_EMPLOYEE b1
 where rownum <= 10;</pre>
+
+# Chuyển number sang varchar2
+<pre>select to_char(12345) as number_as_string
+from dual;</pre>
