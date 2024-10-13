@@ -169,7 +169,7 @@ from dual;</pre>
 <pre>select to_number('12345') as number_value
 from dual;</pre>
 
-<br><br>
+<br>
 
 <pre>select to_number('123,456,789.67', '999G999G999D99') as number_value
 from dual;</pre>
