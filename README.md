@@ -164,3 +164,12 @@ where rownum <= 10;</pre>
 # Chuyển number sang varchar2
 <pre>select to_char(12345) as number_as_string
 from dual;</pre>
+
+# Chuyển varchar2 sang number
+<pre>select to_number('12345') as number_value
+from dual;</pre>
+
+<br><br>
+
+<pre>select to_number('123,456,789.67', '999G999G999D99') as number_value
+from dual;</pre>
