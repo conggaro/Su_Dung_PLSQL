@@ -203,3 +203,7 @@ Hàm SYS_GUID() trong Oracle được sử dụng để tạo ra một giá tr�
 <pre>SELECT SYS_GUID() AS unique_id
 FROM dual;
 </pre>
+<br>
+<pre>INSERT INTO my_table (id, name)
+VALUES (SYS_GUID(), 'John Doe');
+</pre>
