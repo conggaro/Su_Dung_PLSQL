@@ -196,3 +196,10 @@ from dual;</pre>
     -- mo con tro P_CUR
     OPEN P_CUR FOR P_SQL;
   END;</pre>
+
+# Hàm SYS_GUID()
+Hàm SYS_GUID() trong Oracle được sử dụng để tạo ra một giá trị GUID (Globally Unique Identifier) duy nhất, dưới dạng chuỗi nhị phân 16 byte. GUID được sử dụng để đảm bảo rằng mỗi giá trị sinh ra là hoàn toàn độc lập và không trùng lặp, ngay cả khi chúng được tạo ra trên nhiều hệ thống khác nhau.
+<br>
+<pre>SELECT SYS_GUID() AS unique_id
+FROM dual;
+</pre>
