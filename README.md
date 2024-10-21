@@ -210,7 +210,7 @@ VALUES (SYS_GUID(), 'John Doe');
 
 # Xếp hạng bằng hàm RANK()
 <pre>SELECT EMPLOYEE_ID,
-    SALARY, 
+       SALARY, 
        RANK() OVER (ORDER BY SALARY DESC) AS rank
 FROM EMPLOYEES;
 </pre>
