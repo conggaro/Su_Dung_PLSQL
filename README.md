@@ -214,3 +214,25 @@ VALUES (SYS_GUID(), 'John Doe');
        RANK() OVER (ORDER BY SALARY DESC) AS rank
 FROM EMPLOYEES;
 </pre>
+
+# Sử dụng WITH
+<pre>-- sử dụng with để có 2 bảng tạm
+with CommonTableExpressions as (
+    select *
+    from HU_EMPLOYEE
+),
+ho as (
+    select *
+    from HU_ORGANIZATION
+)
+
+-- bắt đầu select 2 bảng tạm
+select     b1.ID,
+           b1.FULLNAME,
+           b2.NAME
+from       CommonTableExpressions b1
+left join  ho b2
+on         b1.ORG_ID = b2.ID
+
+-- lấy 10 bản ghi đầu tiên
+where rownum <= 10;</pre>
