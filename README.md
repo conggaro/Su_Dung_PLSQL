@@ -207,3 +207,9 @@ FROM dual;
 <pre>INSERT INTO my_table (id, name)
 VALUES (SYS_GUID(), 'John Doe');
 </pre>
+
+# Xếp hạng bằng hàm RANK()
+<pre>SELECT EMPLOYEE_ID, SALARY, 
+       RANK() OVER (ORDER BY SALARY DESC) AS rank
+FROM EMPLOYEES;
+</pre>
