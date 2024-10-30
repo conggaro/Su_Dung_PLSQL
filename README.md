@@ -236,3 +236,37 @@ on         b1.ORG_ID = b2.ID
 
 -- lấy 10 bản ghi đầu tiên
 where rownum <= 10;</pre>
+
+# Lấy dữ liệu ở cột A rồi update cho cột B
+<pre>-- tạo bảng
+create table test_table (
+       num_left number,
+       num_final number
+);
+
+-- thêm bản ghi
+insert into test_table (num_left) values (1);
+insert into test_table (num_left) values (2);
+insert into test_table (num_left) values (3);
+insert into test_table (num_left) values (4);
+insert into test_table (num_left) values (5);
+
+-- lấy tất cả bản ghi
+select *
+from test_table;
+
+-- lấy các giá trị ở cột num_left
+-- để update cho cột num_final
+update test_table
+set num_final = num_left * 2;
+
+-- thiết lập lại giá trị cho cột num_final
+update test_table
+set num_final = null;
+
+-- thử update kiểu sum
+update test_table
+set num_final = (select sum(num_left) from test_table);
+
+-- xóa bảng test_table
+drop table test_table;</pre>
