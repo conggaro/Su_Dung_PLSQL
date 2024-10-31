@@ -276,3 +276,8 @@ drop table test_table;</pre>
 FROM ALL_TAB_COLUMNS
 WHERE TABLE_NAME = 'PA_PAYROLLSHEET_DTL_1890'
       AND OWNER = 'TENANTDB1'; -- Thay SCHEMA_NAME bằng tên schema của bạn (nếu cần)</pre>
+<br>
+COLUMN_NAME: Tên của cột trong bảng.<br>
+DATA_TYPE: Kiểu dữ liệu của cột (ví dụ: VARCHAR2, NUMBER, DATE).<br>
+DATA_LENGTH: Độ dài của cột (áp dụng cho kiểu VARCHAR2, CHAR).<br>
+DATA_PRECISION và DATA_SCALE: Độ chính xác và thang đo (áp dụng cho kiểu NUMBER).<br>
