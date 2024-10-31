@@ -270,3 +270,9 @@ set num_final = (select sum(num_left) from test_table);
 
 -- xóa bảng test_table
 drop table test_table;</pre>
+
+# Xem tên và kiểu dữ liệu của cột trong bảng
+<pre>SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH, DATA_PRECISION, DATA_SCALE, OWNER
+FROM ALL_TAB_COLUMNS
+WHERE TABLE_NAME = 'PA_PAYROLLSHEET_DTL_1890'
+      AND OWNER = 'TENANTDB1'; -- Thay SCHEMA_NAME bằng tên schema của bạn (nếu cần)</pre>
