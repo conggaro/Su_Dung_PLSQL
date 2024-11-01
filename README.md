@@ -281,3 +281,49 @@ COLUMN_NAME: Tên của cột trong bảng.<br>
 DATA_TYPE: Kiểu dữ liệu của cột (ví dụ: VARCHAR2, NUMBER, DATE).<br>
 DATA_LENGTH: Độ dài của cột (áp dụng cho kiểu VARCHAR2, CHAR).<br>
 DATA_PRECISION và DATA_SCALE: Độ chính xác và thang đo (áp dụng cho kiểu NUMBER).<br>
+
+# Sử dụng con trỏ
+<pre>CREATE OR REPLACE PACKAGE Payroll_Pkg AS
+  -- Khai báo thủ tục trong package
+  PROCEDURE Print_XLLD;
+END Payroll_Pkg;</pre>
+
+<br>
+
+<pre>CREATE OR REPLACE PACKAGE BODY Payroll_Pkg AS
+    PROCEDURE Print_XLLD IS
+        -- khai bao bien de xem log
+        P_NUM_LOG           NUMBER;
+        P_TEXT_LOG          VARCHAR2(100);
+
+        -- tuy chinh con tro de in ra man hinh
+        CURSOR c999 IS
+            SELECT  XLLD
+            FROM    PA_PAYROLLSHEET_DTL_1890
+            WHERE   EMPLOYEE_ID in (
+                        SELECT DISTINCT EMPLOYEE_ID
+                        FROM PA_EMPLOYEE_TEMP
+                    )
+                    AND PERIOD_ID = 3922; -- tháng 8
+        
+        v_XLLD c999%ROWTYPE;
+
+    BEGIN
+        SELECT COUNT(*)
+        INTO P_NUM_LOG
+        FROM PA_PAYROLLSHEET_DTL_1890;
+
+        IF P_NUM_LOG > 0 THEN
+            OPEN c999;
+                LOOP
+                    FETCH c999
+                    INTO v_XLLD;
+                    EXIT WHEN c999%NOTFOUND;
+                
+                    P_TEXT_LOG := v_XLLD.XLLD;
+                    DBMS_OUTPUT.PUT_LINE('XLLD: ' || P_TEXT_LOG);
+                END LOOP;
+            CLOSE c999;
+        END IF;
+    END Print_XLLD;
+END Payroll_Pkg;</pre>
