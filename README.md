@@ -335,3 +335,7 @@ FROM PA_PAYROLLSHEET_SUM_1890
 WHERE 1=0;</pre>
 <br>
 WHERE 1=0 đảm bảo rằng không có bản ghi nào được sao chép từ PA_PAYROLLSHEET_SUM_1890 sang Test2, chỉ cấu trúc bảng được sao chép.
+
+# Xóa dấu phẩy ở cuối của chuỗi text
+<pre>SELECT REGEXP_REPLACE('ok,ko,ko,', ',$', '') AS result
+FROM dual;</pre>
