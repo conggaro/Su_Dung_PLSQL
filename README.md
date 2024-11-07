@@ -339,3 +339,9 @@ WHERE 1=0 đảm bảo rằng không có bản ghi nào được sao chép từ 
 # Xóa dấu phẩy ở cuối của chuỗi text
 <pre>SELECT REGEXP_REPLACE('ok,ko,ko,', ',$', '') AS result
 FROM dual;</pre>
+
+# Câu lệnh tạo sequence
+<pre>-- Tạo sequence mới cho bảng REPORT_SHEET_SUM
+CREATE SEQUENCE REPORT_SHEET_SUM_SEQ
+START WITH 1  -- Hoặc số bạn muốn bắt đầu
+INCREMENT BY 1;</pre>
