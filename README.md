@@ -345,3 +345,7 @@ FROM dual;</pre>
 CREATE SEQUENCE REPORT_SHEET_SUM_SEQ
 START WITH 1  -- Hoặc số bạn muốn bắt đầu
 INCREMENT BY 1;</pre>
+
+# Sửa kiểu dữ liệu của cột
+<pre>ALTER TABLE PA_PAYROLLSHEET_SUM_1890
+MODIFY TAX5 NUMBER</pre>
