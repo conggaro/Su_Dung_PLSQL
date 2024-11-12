@@ -349,3 +349,10 @@ INCREMENT BY 1;</pre>
 # Sửa kiểu dữ liệu của cột
 <pre>ALTER TABLE PA_PAYROLLSHEET_SUM_1890
 MODIFY TAX5 NUMBER</pre>
+
+# Đánh số thứ tự
+<pre>SELECT 
+    ROW_NUMBER() OVER (ORDER BY YourColumn) AS RowNum, 
+    *
+FROM 
+    YourTable;</pre>
