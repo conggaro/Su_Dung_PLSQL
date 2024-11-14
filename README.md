@@ -356,3 +356,9 @@ MODIFY TAX5 NUMBER</pre>
     *
 FROM 
     YourTable;</pre>
+
+# Vòng lặp for trong stored procedure
+<pre>FOR C IN (SELECT * FROM AT_TIMESHEET_MONTHLY_DTL WHERE EMPLOYEE_ID = 43589
+) LOOP
+        dbms_output.put_line('P_TEXT :' || P_TEXT);
+END LOOP;</pre>
