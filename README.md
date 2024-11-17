@@ -365,3 +365,23 @@ FROM
 ) LOOP
         dbms_output.put_line('P_TEXT :' || P_TEXT);
 END LOOP;</pre>
+
+# Bắt ngoại lệ Exception
+<pre>PROCEDURE REPORT_TEST(P_TENANT_ID  IN NUMBER)
+IS
+  v_number NUMBER;
+BEGIN
+  FOR C IN (SELECT * FROM HU_SALARY_TYPE
+  ) LOOP
+    dbms_output.put_line('Test log :' || C.ID);
+  END LOOP;
+
+	-- Gi? s? x?y ra l?i chia cho 0
+  v_number := 10 / 0;
+      
+  DBMS_OUTPUT.PUT_LINE('This line will not be executed due to the error.');
+
+EXCEPTION
+      WHEN OTHERS THEN
+          DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
+END;</pre>
