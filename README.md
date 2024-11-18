@@ -386,9 +386,11 @@ EXCEPTION
           DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;</pre>
 
-# Hàm bỏ phần thập phân
+# Hàm Trunc() bỏ phần thập phân
 <pre>SELECT TRUNC(1.5555) AS XOA_PHAN_THAP_PHAN
 FROM DUAL</pre>
+
+Cho giá trị "31/01/2004 22:35:59" kiểu DateTime, nếu dùng hàm Trunc() thì nó sẽ trả về Date, nó trả về trông như này "31/01/2004"
 
 # Format ngày giờ - định dạng ngày giờ
 <pre>SELECT to_date('18/11/2024 22:35:59', 'dd/MM/yyyy HH24:MI:SS')
