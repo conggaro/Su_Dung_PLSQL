@@ -385,3 +385,7 @@ EXCEPTION
       WHEN OTHERS THEN
           DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;</pre>
+
+# Hàm bỏ phần thập phân
+<pre>SELECT TRUNC(1.5555) AS XOA_PHAN_THAP_PHAN
+FROM DUAL</pre>
