@@ -389,3 +389,7 @@ END;</pre>
 # Hàm bỏ phần thập phân
 <pre>SELECT TRUNC(1.5555) AS XOA_PHAN_THAP_PHAN
 FROM DUAL</pre>
+
+# Format ngày giờ - định dạng ngày giờ
+<pre>SELECT to_date('18/11/2024 22:35:59', 'dd/MM/yyyy HH24:MI:SS')
+FROM DUAL</pre>
