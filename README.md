@@ -385,3 +385,18 @@ EXCEPTION
       WHEN OTHERS THEN
           DBMS_OUTPUT.PUT_LINE('An error occurred: ' || SQLERRM);
 END;</pre>
+
+# Thay đổi tên cột
+<pre>create table test01 (
+    id bigint,
+    name varchar(20)
+)
+
+insert into test01
+values (1, 'test 01'), (2, 'test 02')
+
+select *
+from test01
+
+-- sửa tên cột
+EXEC sp_rename 'test01.name', 'name_vn', 'COLUMN';</pre>
