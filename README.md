@@ -395,3 +395,6 @@ Cho giá trị "31/01/2004 22:35:59" kiểu DateTime, nếu dùng hàm Trunc() t
 # Format ngày giờ - định dạng ngày giờ
 <pre>SELECT to_date('18/11/2024 22:35:59', 'dd/MM/yyyy HH24:MI:SS')
 FROM DUAL</pre>
+
+# In ra thời gian mỗi khi Debug
+<pre>DBMS_OUTPUT.PUT_LINE('Run into here: ' || TO_CHAR(SYSDATE,'MI:SS'));</pre>
