@@ -398,3 +398,18 @@ FROM DUAL</pre>
 
 # In ra thời gian mỗi khi Debug
 <pre>DBMS_OUTPUT.PUT_LINE('Run into here: ' || TO_CHAR(SYSDATE,'MI:SS'));</pre>
+
+# Cây có bậc
+<pre>SELECT 
+    TO_NCHAR(RPAD(' ', 5 * (LEVEL - 1), '    ') || O.NAME) AS NAME,
+    O.ID,
+    LEVEL AS TREE_LEVEL -- Cột hiển thị bậc của cây
+FROM 
+    HU_ORGANIZATION O
+WHERE 
+    TENANT_ID = 1890
+START WITH 
+    O.ID = 3201 -- Bao gồm phòng ban gốc
+CONNECT BY 
+    PRIOR O.ID = O.PARENT_ID;
+</pre>
