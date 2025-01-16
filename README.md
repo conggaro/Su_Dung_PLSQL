@@ -413,3 +413,11 @@ START WITH
 CONNECT BY 
     PRIOR O.ID = O.PARENT_ID;
 </pre>
+
+# Câu lệnh tạo sequence phần 2
+<pre> 
+CREATE SEQUENCE seq_hu_employee_tmp_id
+START WITH 1    -- Giá trị bắt đầu
+INCREMENT BY 1  -- Giá trị tăng thêm
+NOCACHE;        -- Không lưu trữ giá trị tạm thời
+ </pre>
