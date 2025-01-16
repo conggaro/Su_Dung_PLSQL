@@ -421,3 +421,7 @@ START WITH 1    -- Giá trị bắt đầu
 INCREMENT BY 1  -- Giá trị tăng thêm
 NOCACHE;        -- Không lưu trữ giá trị tạm thời
  </pre>
+
+# Câu lệnh thêm khóa chính
+<pre>ALTER TABLE AT_WORKSIGN_TMP
+ADD CONSTRAINT pk_at_worksign_tmp_id PRIMARY KEY (id);</pre>
