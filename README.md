@@ -425,3 +425,7 @@ NOCACHE;        -- Không lưu trữ giá trị tạm thời
 # Câu lệnh thêm khóa chính
 <pre>ALTER TABLE AT_WORKSIGN_TMP
 ADD CONSTRAINT pk_at_worksign_tmp_id PRIMARY KEY (id);</pre>
+
+# Cấu hình tự động tăng cho ID sau khi tạo sequence
+<pre>ALTER TABLE AT_WORKSIGN_TMP
+MODIFY ID DEFAULT seq_hu_employee_tmp_id.NEXTVAL;</pre>
