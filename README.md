@@ -429,3 +429,9 @@ ADD CONSTRAINT pk_at_worksign_tmp_id PRIMARY KEY (id);</pre>
 # Cấu hình tự động tăng cho ID sau khi tạo sequence
 <pre>ALTER TABLE AT_WORKSIGN_TMP
 MODIFY ID DEFAULT seq_hu_employee_tmp_id.NEXTVAL;</pre>
+
+# Dùng OFFSET để bỏ qua n dòng đầu tiên
+<pre>SELECT * FROM table_name
+ORDER BY column_name
+OFFSET n ROWS;  -- Bỏ qua n hàng đầu tiên
+</pre>
