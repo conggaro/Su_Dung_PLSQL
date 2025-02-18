@@ -435,3 +435,12 @@ MODIFY ID DEFAULT seq_hu_employee_tmp_id.NEXTVAL;</pre>
 ORDER BY column_name
 OFFSET n ROWS;  -- Bỏ qua n hàng đầu tiên
 </pre>
+
+# Dùng OFFSET và FETCH để giới hạn số hàng
+Bạn có thể kết hợp OFFSET với FETCH để lấy một số lượng hàng cụ thể sau khi bỏ qua một số hàng đầu tiên.<br>
+Có thể dùng để phân trang<br>
+Trang 1 (hàng 1 - 10)<br>
+<pre>SELECT * FROM employees
+ORDER BY employee_id
+OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
+</pre>
