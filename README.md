@@ -444,3 +444,9 @@ Trang 1 (hàng 1 - 10)<br>
 ORDER BY employee_id
 OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
 </pre>
+
+Trang 2 (hàng 11 - 20):<br>
+<pre>SELECT * FROM employees
+ORDER BY employee_id
+OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
+</pre>
