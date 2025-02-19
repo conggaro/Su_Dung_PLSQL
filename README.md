@@ -450,3 +450,40 @@ Trang 2 (hàng 11 - 20):<br>
 ORDER BY employee_id
 OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
 </pre>
+
+# sắp xếp theo nhóm
+<pre>Cho bảng có cột
+ID, NAME, TOTAL
+
+dữ liệu bên trong kiểu
+1, A, 100
+2, A, 88
+3, B, 30
+4, B, 11
+5, B, 80
+6, A, 200
+
+kết quả mong muốn sắp xếp theo nhóm
+
+nhóm theo cột NAME
+sau đó sắp xếp cột TOTAL tăng dần
+
+kết quả đầu ra mong muốn
+4, B, 11
+3, B, 30
+5, B, 80
+2, A, 88
+1, A, 100
+6, A, 200
+
+
+vậy thì dùng câu lệnh này
+SELECT
+    ID,
+    NAME,
+    TOTAL
+FROM
+    YOUR_TABLE_NAME
+ORDER BY
+    NAME DESC,
+    TOTAL ASC;</pre>
