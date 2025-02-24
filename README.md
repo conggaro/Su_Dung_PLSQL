@@ -401,18 +401,23 @@ FROM DUAL</pre>
 
 # Cây có bậc
 <pre>SELECT 
+    LTRIM(SYS_CONNECT_BY_PATH(LEVEL_ORDER, '.'), '.') AS TREE_PATH, -- Loại bỏ dấu "." đầu tiên
     TO_NCHAR(RPAD(' ', 5 * (LEVEL - 1), '    ') || O.NAME) AS NAME,
     O.ID,
-    LEVEL AS TREE_LEVEL -- Cột hiển thị bậc của cây
-FROM 
-    HU_ORGANIZATION O
-WHERE 
-    TENANT_ID = 1890
+    LEVEL AS TREE_LEVEL
+FROM (
+    SELECT 
+        O.*,
+        DENSE_RANK() OVER (PARTITION BY PARENT_ID ORDER BY ID) AS LEVEL_ORDER -- Đánh số đúng theo cấp cha-con
+    FROM 
+        HU_ORGANIZATION O
+    WHERE 
+        TENANT_ID = 1890
+) O
 START WITH 
     O.ID = 3201 -- Bao gồm phòng ban gốc
 CONNECT BY 
-    PRIOR O.ID = O.PARENT_ID;
-</pre>
+    PRIOR O.ID = O.PARENT_ID;</pre>
 
 # Câu lệnh tạo sequence phần 2
 <pre> 
