@@ -492,3 +492,26 @@ FROM
 ORDER BY
     NAME DESC,
     TOTAL ASC;</pre>
+
+# Vừa select ra cha con, vừa sắp xếp được theo cột ORDERS
+<pre>SELECT
+    LTRIM(SYS_CONNECT_BY_PATH(LEVEL_ORDER, '.'), '.') AS TREE_PATH, -- Loại bỏ dấu "." đầu tiên
+    TO_NCHAR(RPAD(' ', 5 * (LEVEL - 1), '    ') || O.NAME) AS NAME,
+    O.ID,
+    LEVEL AS TREE_LEVEL,
+    ORDERS
+FROM (
+    SELECT 
+        O.*,
+        DENSE_RANK() OVER (PARTITION BY PARENT_ID ORDER BY ORDERS, ID) AS LEVEL_ORDER  -- Sắp xếp theo ORDERS trước, nếu trùng thì theo ID
+    FROM 
+        HU_ORGANIZATION O
+    WHERE 
+        TENANT_ID = 1205 -- chỉ là dùng để phân loại công ty thôi, drop down công ty
+) O
+START WITH 
+    O.ID = 1421 -- Bao gồm phòng ban gốc
+CONNECT BY 
+    PRIOR O.ID = O.PARENT_ID
+ORDER SIBLINGS BY ORDERS, ID;  -- Đảm bảo thứ tự phòng ban con dựa vào cột ORDERS
+</pre>
