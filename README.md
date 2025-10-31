@@ -1,3 +1,9 @@
+# Câu lệnh lấy ra tên cột và kiểu dữ liệu trong Oracle
+<pre>
+SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH
+FROM USER_TAB_COLUMNS
+WHERE TABLE_NAME = 'tên_bảng';</pre>
+
 # ODAC là gì?
 Oracle Data Access Components
 
